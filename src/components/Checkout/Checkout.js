@@ -13,7 +13,7 @@ const Checkout = () => {
     const history = useHistory();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/product/${id}`)
+        fetch(`https://calm-fjord-71174.herokuapp.com/product/${id}`)
         .then(response => response.json())
         .then(data => {setProduct(data)
         console.log(data);
@@ -31,7 +31,7 @@ const Checkout = () => {
     }
 
     const handleCheckOut = () =>{
-        fetch(`http://localhost:5000/addOrder`, {
+        fetch(`https://calm-fjord-71174.herokuapp.com/addOrder`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(orderInfo)

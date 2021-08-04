@@ -7,7 +7,7 @@ import ProductsList from '../ProductsList/ProductsList';
 const ManageProducts = () => {
     const [products,setProducts]= useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/products')
+        fetch('https://calm-fjord-71174.herokuapp.com/products')
         .then(res=>res.json())
         .then(data=>setProducts(data));
     },[])

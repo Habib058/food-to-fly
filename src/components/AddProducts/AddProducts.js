@@ -6,7 +6,7 @@ import Admin from '../Admin/Admin';
 import './AddProduct.css'
 
 const AddProducts = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit,  formState: { errors } } = useForm();
     const [productImage, setProductImage] = useState(null);
     const onSubmit = data => {
         console.log(data);
@@ -15,7 +15,7 @@ const AddProducts = () => {
             price: data.price,
             imgUrl: productImage
         };
-        const url = 'http://localhost:5000/addProduct';
+        const url = 'https://calm-fjord-71174.herokuapp.com/addProduct';
         fetch(url, {
             method: 'POST',
             headers: {
@@ -27,7 +27,7 @@ const AddProducts = () => {
 
     };
     const handleChange = event => {
-        //console.log(event.target.files[0]);
+
         const productData = new FormData();
         productData.set('key', '16cf69b83bb1ecc5b8dea23167a2100e');
         productData.append('image', event.target.files[0]);
@@ -44,15 +44,6 @@ const AddProducts = () => {
 
         <div>
             <Admin />
-            {/* <div>
-                <h1>Add Products</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input name='name' defaultValue="new product" {...register("name")} /> <br />
-                    <input name='price' defaultValue="$20" {...register("price")} /> <br />
-                    <input type='file' onChange={handleChange} /> <br />
-                    <input type="submit" />
-                </form>
-            </div> */}
              <div className="container col-md-8">
                 <h2 className="m-5 text-center">Add Product</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>

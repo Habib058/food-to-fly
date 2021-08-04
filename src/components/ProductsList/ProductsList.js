@@ -5,7 +5,7 @@ const ProductsList = (props) => {
     const {_id,name,price}= props.prd;
     const history = useHistory();
     const handleDelete = (e) => {
-        fetch(`http://localhost:5000/deleteProduct/${_id}`,{
+        fetch(`https://calm-fjord-71174.herokuapp.com/deleteProduct/${_id}`,{
             method: 'DELETE'
         })
         .then(response => response.json)
